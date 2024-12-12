@@ -10,8 +10,6 @@ import java.util.UUID;
 
 @Entity
 @Data
-@NoArgsConstructor
-@AllArgsConstructor
 @Table(name = "movies")
 public class MovieEntity {
 

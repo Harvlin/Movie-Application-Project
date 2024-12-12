@@ -54,6 +54,7 @@
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "preferences.lookFeel",
     "spring.configuration.checksum": "55ba44c548d3ebafd9f70e64a7f232b0",
     "vue.rearranger.settings.migration": "true"
   }
@@ -92,7 +93,7 @@
       <workItem from="1733921225138" duration="2416000" />
       <workItem from="1733923691426" duration="3860000" />
       <workItem from="1734017633133" duration="1844000" />
-      <workItem from="1734020639137" duration="2571000" />
+      <workItem from="1734020639137" duration="3614000" />
     </task>
     <servers />
   </component>

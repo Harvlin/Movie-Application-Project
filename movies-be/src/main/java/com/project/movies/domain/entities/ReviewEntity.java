@@ -7,8 +7,6 @@ import java.util.UUID;
 
 @Entity
 @Table(name = "reviews")
-@AllArgsConstructor
-@NoArgsConstructor
 @Data
 public class ReviewEntity {
 
@@ -26,6 +24,35 @@ public class ReviewEntity {
 
     public ReviewEntity(String body) {
         this.body = body;
+    }
+
+    public ReviewEntity(UUID reviewId, String body, MovieEntity movieEntity) {
+        this.reviewId = reviewId;
+        this.body = body;
+        this.movieEntity = movieEntity;
+    }
+
+    public ReviewEntity() {
+    }
+
+    public UUID getReviewId() {
+        return reviewId;
+    }
+
+    public void setReviewId(UUID reviewId) {
+        this.reviewId = reviewId;
+    }
+
+    public String getBody() {
+        return body;
+    }
+
+    public void setBody(String body) {
+        this.body = body;
+    }
+
+    public MovieEntity getMovieEntity() {
+        return movieEntity;
     }
 
     public void setMovieEntity(MovieEntity movieEntity) {
