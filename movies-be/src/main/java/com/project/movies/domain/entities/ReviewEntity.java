@@ -10,6 +10,7 @@ import java.util.UUID;
 @Data
 @AllArgsContructor
 @NoArgsConstructor
+@Builder
 public class ReviewEntity {
 
     @Id
