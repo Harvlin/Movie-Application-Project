@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="00eb2fc5-29b0-4078-9424-12adc84aeea2" name="Changes" comment="" />
+    <list default="true" id="00eb2fc5-29b0-4078-9424-12adc84aeea2" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -45,7 +47,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "master",
+    "git-widget-placeholder": "main",
     "last_opened_file_path": "C:/MoviesProject",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -90,7 +92,7 @@
       <workItem from="1733921225138" duration="2416000" />
       <workItem from="1733923691426" duration="3860000" />
       <workItem from="1734017633133" duration="1844000" />
-      <workItem from="1734020639137" duration="1909000" />
+      <workItem from="1734020639137" duration="2571000" />
     </task>
     <servers />
   </component>
