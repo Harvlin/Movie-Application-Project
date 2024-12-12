@@ -11,6 +11,9 @@ import java.util.UUID;
 @Entity
 @Data
 @Table(name = "movies")
+@AllArgsContructor
+@NoArgsConstructor
+@Builder
 public class MovieEntity {
 
     @Id
@@ -35,13 +38,4 @@ public class MovieEntity {
 
     @OneToMany(mappedBy = "movieEntity", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private List<ReviewEntity> reviews;
-
-    public List<ReviewEntity> getReviews() {
-        return reviews;
-    }
-
-    public void setReviews(List<ReviewEntity> reviews) {
-        this.reviews = reviews;
-    }
-
 }
