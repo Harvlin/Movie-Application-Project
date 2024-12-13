@@ -1,0 +1,6 @@
+com\project\movies\service\ReviewServiceTest.class
+com\project\movies\controllers\ReviewControllerTest.class
+com\project\movies\controllers\MovieControllerTest.class
+com\project\movies\MoviesApplicationTests.class
+com\project\movies\service\MovieServiceTest.class
+com\project\movies\TestDataUtil.class

@@ -1,0 +1,17 @@
+C:\MoviesProject\movies-be\src\main\java\com\project\movies\config\MapperConfig.java
+C:\MoviesProject\movies-be\src\main\java\com\project\movies\controllers\MovieController.java
+C:\MoviesProject\movies-be\src\main\java\com\project\movies\controllers\ReviewController.java
+C:\MoviesProject\movies-be\src\main\java\com\project\movies\domain\dtos\MovieDto.java
+C:\MoviesProject\movies-be\src\main\java\com\project\movies\domain\dtos\ReviewDto.java
+C:\MoviesProject\movies-be\src\main\java\com\project\movies\domain\entities\MovieEntity.java
+C:\MoviesProject\movies-be\src\main\java\com\project\movies\domain\entities\ReviewEntity.java
+C:\MoviesProject\movies-be\src\main\java\com\project\movies\mappers\impl\MovieMapperImpl.java
+C:\MoviesProject\movies-be\src\main\java\com\project\movies\mappers\impl\ReviewMapperImpl.java
+C:\MoviesProject\movies-be\src\main\java\com\project\movies\mappers\Mapper.java
+C:\MoviesProject\movies-be\src\main\java\com\project\movies\MoviesApplication.java
+C:\MoviesProject\movies-be\src\main\java\com\project\movies\repositories\MovieRepository.java
+C:\MoviesProject\movies-be\src\main\java\com\project\movies\repositories\ReviewRepository.java
+C:\MoviesProject\movies-be\src\main\java\com\project\movies\service\impl\MovieServiceImpl.java
+C:\MoviesProject\movies-be\src\main\java\com\project\movies\service\impl\ReviewServiceImpl.java
+C:\MoviesProject\movies-be\src\main\java\com\project\movies\service\MovieService.java
+C:\MoviesProject\movies-be\src\main\java\com\project\movies\service\ReviewService.java
