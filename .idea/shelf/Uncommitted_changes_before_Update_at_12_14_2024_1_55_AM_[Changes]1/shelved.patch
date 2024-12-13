@@ -1,0 +1,302 @@
+Index: movies-fe/movie-gold-v1/src/setupTests.js
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/movies-fe/movie-gold-v1/src/setupTests.js b/movies-fe/movie-gold-v1/src/setupTests.js
+deleted file mode 100644
+--- a/movies-fe/movie-gold-v1/src/setupTests.js	
++++ /dev/null	
+@@ -1,5 +0,0 @@
+-// jest-dom adds custom jest matchers for asserting on DOM nodes.
+-// allows you to do things like:
+-// expect(element).toHaveTextContent(/react/i)
+-// learn more: https://github.com/testing-library/jest-dom
+-import '@testing-library/jest-dom';
+Index: movies-fe/movie-gold-v1/src/reportWebVitals.js
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/movies-fe/movie-gold-v1/src/reportWebVitals.js b/movies-fe/movie-gold-v1/src/reportWebVitals.js
+deleted file mode 100644
+--- a/movies-fe/movie-gold-v1/src/reportWebVitals.js	
++++ /dev/null	
+@@ -1,13 +0,0 @@
+-const reportWebVitals = onPerfEntry => {
+-  if (onPerfEntry && onPerfEntry instanceof Function) {
+-    import('web-vitals').then(({ getCLS, getFID, getFCP, getLCP, getTTFB }) => {
+-      getCLS(onPerfEntry);
+-      getFID(onPerfEntry);
+-      getFCP(onPerfEntry);
+-      getLCP(onPerfEntry);
+-      getTTFB(onPerfEntry);
+-    });
+-  }
+-};
+-
+-export default reportWebVitals;
+Index: movies-fe/movie-gold-v1/src/App.test.js
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/movies-fe/movie-gold-v1/src/App.test.js b/movies-fe/movie-gold-v1/src/App.test.js
+deleted file mode 100644
+--- a/movies-fe/movie-gold-v1/src/App.test.js	
++++ /dev/null	
+@@ -1,8 +0,0 @@
+-import { render, screen } from '@testing-library/react';
+-import App from './App';
+-
+-test('renders learn react link', () => {
+-  render(<App />);
+-  const linkElement = screen.getByText(/learn react/i);
+-  expect(linkElement).toBeInTheDocument();
+-});
+Index: movies-fe/movie-gold-v1/src/index.js
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>import React from 'react';\r\nimport ReactDOM from 'react-dom/client';\r\nimport './index.css';\r\nimport App from './App';\r\nimport reportWebVitals from './reportWebVitals';\r\n\r\nconst root = ReactDOM.createRoot(document.getElementById('root'));\r\nroot.render(\r\n  <React.StrictMode>\r\n    <App />\r\n  </React.StrictMode>\r\n);\r\n\r\n// If you want to start measuring performance in your app, pass a function\r\n// to log results (for example: reportWebVitals(console.log))\r\n// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals\r\nreportWebVitals();\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/movies-fe/movie-gold-v1/src/index.js b/movies-fe/movie-gold-v1/src/index.js
+--- a/movies-fe/movie-gold-v1/src/index.js	
++++ b/movies-fe/movie-gold-v1/src/index.js	
+@@ -1,17 +1,17 @@
+-import React from 'react';
+-import ReactDOM from 'react-dom/client';
+-import './index.css';
+-import App from './App';
+-import reportWebVitals from './reportWebVitals';
++import React from "react";
++import ReactDOM from "react-dom/client";
++import "./index.css";
++import App from "./App";
++import "bootstrap";
++import { BrowserRouter, Route, Routes } from "react-router-dom";
+ 
+-const root = ReactDOM.createRoot(document.getElementById('root'));
++const root = ReactDOM.createRoot(document.getElementById("root"));
+ root.render(
+   <React.StrictMode>
+-    <App />
++    <BrowserRouter>
++      <Routes>
++        <Route path="/" element={<App />} />
++      </Routes>
++    </BrowserRouter>
+   </React.StrictMode>
+ );
+-
+-// If you want to start measuring performance in your app, pass a function
+-// to log results (for example: reportWebVitals(console.log))
+-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
+-reportWebVitals();
+Index: movies-fe/movie-gold-v1/src/App.js
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>import logo from './logo.svg';\r\nimport './App.css';\r\n\r\nfunction App() {\r\n  return (\r\n    <div className=\"App\">\r\n      <header className=\"App-header\">\r\n        <img src={logo} className=\"App-logo\" alt=\"logo\" />\r\n        <p>\r\n          Edit <code>src/App.js</code> and save to reload.\r\n        </p>\r\n        <a\r\n          className=\"App-link\"\r\n          href=\"https://reactjs.org\"\r\n          target=\"_blank\"\r\n          rel=\"noopener noreferrer\"\r\n        >\r\n          Learn React\r\n        </a>\r\n      </header>\r\n    </div>\r\n  );\r\n}\r\n\r\nexport default App;\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/movies-fe/movie-gold-v1/src/App.js b/movies-fe/movie-gold-v1/src/App.js
+--- a/movies-fe/movie-gold-v1/src/App.js	
++++ b/movies-fe/movie-gold-v1/src/App.js	
+@@ -1,23 +1,34 @@
+-import logo from './logo.svg';
+-import './App.css';
++import "./App.css";
++import api from "./api/axiosConfig";
++import { useState, useEffect } from "react";
++import Layout from "./components/Layout";
++import { Routes, Route } from "react-router-dom";
++import Home from "./components/home/Home";
+ 
+ function App() {
++  const [movies, setMovies] = useState();
++
++  const getMovies = async () => {
++    try {
++      const response = await api.get("http://localhost:8080/api/v1/movies");
++      console.log(response.data);
++      setMovies(response.data);
++    } catch (err) {
++      console.log(err);
++    }
++  };
++
++  useEffect(() => {
++    getMovies();
++  }, []);
++
+   return (
+     <div className="App">
+-      <header className="App-header">
+-        <img src={logo} className="App-logo" alt="logo" />
+-        <p>
+-          Edit <code>src/App.js</code> and save to reload.
+-        </p>
+-        <a
+-          className="App-link"
+-          href="https://reactjs.org"
+-          target="_blank"
+-          rel="noopener noreferrer"
+-        >
+-          Learn React
+-        </a>
+-      </header>
++      <Routes>
++        <Route path="/" element={<Layout />}>
++          <Route path="/" element={<Home />}></Route>
++        </Route>
++      </Routes>
+     </div>
+   );
+ }
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"AutoImportSettings\">\r\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\r\n  </component>\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"00eb2fc5-29b0-4078-9424-12adc84aeea2\" name=\"Changes\" comment=\"\">\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\r\n    </list>\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"FileTemplateManagerImpl\">\r\n    <option name=\"RECENT_TEMPLATES\">\r\n      <list>\r\n        <option value=\"Record\" />\r\n        <option value=\"Interface\" />\r\n        <option value=\"Class\" />\r\n      </list>\r\n    </option>\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\r\n  </component>\r\n  <component name=\"MarkdownSettingsMigration\">\r\n    <option name=\"stateVersion\" value=\"1\" />\r\n  </component>\r\n  <component name=\"ProjectColorInfo\">{\r\n  &quot;associatedIndex&quot;: 3\r\n}</component>\r\n  <component name=\"ProjectId\" id=\"2ptZXDEcz7DeOnEYA2XRG437LFz\" />\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"compactDirectories\" value=\"true\" />\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n    <option name=\"showMembers\" value=\"true\" />\r\n    <option name=\"showModules\" value=\"false\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\"><![CDATA[{\r\n  \"keyToString\": {\r\n    \"RequestMappingsPanelOrder0\": \"0\",\r\n    \"RequestMappingsPanelOrder1\": \"1\",\r\n    \"RequestMappingsPanelWidth0\": \"75\",\r\n    \"RequestMappingsPanelWidth1\": \"75\",\r\n    \"RunOnceActivity.OpenProjectViewOnStart\": \"true\",\r\n    \"RunOnceActivity.ShowReadmeOnStart\": \"true\",\r\n    \"WebServerToolWindowFactoryState\": \"false\",\r\n    \"git-widget-placeholder\": \"main\",\r\n    \"last_opened_file_path\": \"C:/MoviesProject\",\r\n    \"node.js.detected.package.eslint\": \"true\",\r\n    \"node.js.detected.package.tslint\": \"true\",\r\n    \"node.js.selected.package.eslint\": \"(autodetect)\",\r\n    \"node.js.selected.package.tslint\": \"(autodetect)\",\r\n    \"nodejs_package_manager_path\": \"npm\",\r\n    \"settings.editor.selected.configurable\": \"preferences.lookFeel\",\r\n    \"spring.configuration.checksum\": \"55ba44c548d3ebafd9f70e64a7f232b0\",\r\n    \"vue.rearranger.settings.migration\": \"true\"\r\n  }\r\n}]]></component>\r\n  <component name=\"RecentsManager\">\r\n    <key name=\"MoveFile.RECENT_KEYS\">\r\n      <recent name=\"C:\\MoviesProject\" />\r\n    </key>\r\n  </component>\r\n  <component name=\"RunManager\">\r\n    <configuration name=\"MoviesApplication\" type=\"SpringBootApplicationConfigurationType\" factoryName=\"Spring Boot\" nameIsGenerated=\"true\">\r\n      <option name=\"FRAME_DEACTIVATION_UPDATE_POLICY\" value=\"UpdateClassesAndResources\" />\r\n      <module name=\"movies\" />\r\n      <option name=\"SPRING_BOOT_MAIN_CLASS\" value=\"com.project.movies.MoviesApplication\" />\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n  </component>\r\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"00eb2fc5-29b0-4078-9424-12adc84aeea2\" name=\"Changes\" comment=\"\" />\r\n      <created>1733587370229</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1733587370229</updated>\r\n      <workItem from=\"1733587371604\" duration=\"7295000\" />\r\n      <workItem from=\"1733746928872\" duration=\"3467000\" />\r\n      <workItem from=\"1733750422888\" duration=\"435000\" />\r\n      <workItem from=\"1733761991600\" duration=\"292000\" />\r\n      <workItem from=\"1733762316453\" duration=\"1441000\" />\r\n      <workItem from=\"1733835796702\" duration=\"7001000\" />\r\n      <workItem from=\"1733843301246\" duration=\"4345000\" />\r\n      <workItem from=\"1733847766817\" duration=\"2531000\" />\r\n      <workItem from=\"1733921225138\" duration=\"2416000\" />\r\n      <workItem from=\"1733923691426\" duration=\"3860000\" />\r\n      <workItem from=\"1734017633133\" duration=\"1844000\" />\r\n      <workItem from=\"1734020639137\" duration=\"3614000\" />\r\n    </task>\r\n    <servers />\r\n  </component>\r\n  <component name=\"TypeScriptGeneratedFilesManager\">\r\n    <option name=\"version\" value=\"3\" />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	
++++ b/.idea/workspace.xml	
+@@ -4,8 +4,26 @@
+     <option name="autoReloadType" value="SELECTIVE" />
+   </component>
+   <component name="ChangeListManager">
+-    <list default="true" id="00eb2fc5-29b0-4078-9424-12adc84aeea2" name="Changes" comment="">
++    <list default="true" id="00eb2fc5-29b0-4078-9424-12adc84aeea2" name="Changes" comment="Update Commit">
++      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/movies-be/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/movies-be/pom.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/movies-be/populatedData.txt" beforeDir="false" afterPath="$PROJECT_DIR$/movies-be/populatedData.txt" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/movies-be/src/main/java/com/project/movies/controllers/MovieController.java" beforeDir="false" afterPath="$PROJECT_DIR$/movies-be/src/main/java/com/project/movies/controllers/MovieController.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/movies-be/src/main/java/com/project/movies/domain/dtos/MovieDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/movies-be/src/main/java/com/project/movies/domain/dtos/MovieDto.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/movies-be/src/main/java/com/project/movies/domain/dtos/ReviewDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/movies-be/src/main/java/com/project/movies/domain/dtos/ReviewDto.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/movies-be/src/main/java/com/project/movies/domain/entities/MovieEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/movies-be/src/main/java/com/project/movies/domain/entities/MovieEntity.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/movies-be/src/main/java/com/project/movies/domain/entities/ReviewEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/movies-be/src/main/java/com/project/movies/domain/entities/ReviewEntity.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/movies-fe/movie-gold-v1/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/movies-fe/movie-gold-v1/package-lock.json" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/movies-fe/movie-gold-v1/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/movies-fe/movie-gold-v1/package.json" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/movies-fe/movie-gold-v1/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/movies-fe/movie-gold-v1/src/App.js" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/movies-fe/movie-gold-v1/src/App.test.js" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/movies-fe/movie-gold-v1/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/movies-fe/movie-gold-v1/src/index.js" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/movies-fe/movie-gold-v1/src/reportWebVitals.js" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/movies-fe/movie-gold-v1/src/setupTests.js" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/movies-fe/node_modules/.package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/movies-fe/node_modules/.package-lock.json" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/movies-fe/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/movies-fe/package-lock.json" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/movies-fe/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/movies-fe/package.json" afterDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+@@ -18,6 +36,8 @@
+         <option value="Record" />
+         <option value="Interface" />
+         <option value="Class" />
++        <option value="JavaScript File" />
++        <option value="CSS File" />
+       </list>
+     </option>
+   </component>
+@@ -49,6 +69,7 @@
+     "WebServerToolWindowFactoryState": "false",
+     "git-widget-placeholder": "main",
+     "last_opened_file_path": "C:/MoviesProject",
++    "list.type.of.created.stylesheet": "CSS",
+     "node.js.detected.package.eslint": "true",
+     "node.js.detected.package.tslint": "true",
+     "node.js.selected.package.eslint": "(autodetect)",
+@@ -56,15 +77,17 @@
+     "nodejs_package_manager_path": "npm",
+     "settings.editor.selected.configurable": "preferences.lookFeel",
+     "spring.configuration.checksum": "55ba44c548d3ebafd9f70e64a7f232b0",
++    "ts.external.directory.path": "C:\\Program Files\\JetBrains\\IntelliJ IDEA 2023.2\\plugins\\javascript-impl\\jsLanguageServicesImpl\\external",
+     "vue.rearranger.settings.migration": "true"
+   }
+ }]]></component>
+   <component name="RecentsManager">
+     <key name="MoveFile.RECENT_KEYS">
++      <recent name="C:\MoviesProject\movies-fe\movie-gold-v1\src\components" />
+       <recent name="C:\MoviesProject" />
+     </key>
+   </component>
+-  <component name="RunManager">
++  <component name="RunManager" selected="Spring Boot.MoviesApplication">
+     <configuration name="MoviesApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+       <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UpdateClassesAndResources" />
+       <module name="movies" />
+@@ -73,6 +96,21 @@
+         <option name="Make" enabled="true" />
+       </method>
+     </configuration>
++    <configuration name="start" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
++      <package-json value="$PROJECT_DIR$/movies-fe/movie-gold-v1/package.json" />
++      <command value="run" />
++      <scripts>
++        <script value="start" />
++      </scripts>
++      <node-interpreter value="project" />
++      <envs />
++      <method v="2" />
++    </configuration>
++    <recent_temporary>
++      <list>
++        <item itemvalue="npm.start" />
++      </list>
++    </recent_temporary>
+   </component>
+   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+   <component name="TaskManager">
+@@ -93,11 +131,28 @@
+       <workItem from="1733921225138" duration="2416000" />
+       <workItem from="1733923691426" duration="3860000" />
+       <workItem from="1734017633133" duration="1844000" />
+-      <workItem from="1734020639137" duration="3614000" />
++      <workItem from="1734020639137" duration="8939000" />
++      <workItem from="1734106272844" duration="7915000" />
++      <workItem from="1734115293175" duration="139000" />
++      <workItem from="1734115474240" duration="124000" />
++      <workItem from="1734115620006" duration="457000" />
+     </task>
++    <task id="LOCAL-00001" summary="Update Commit">
++      <option name="closed" value="true" />
++      <created>1734027212663</created>
++      <option name="number" value="00001" />
++      <option name="presentableId" value="LOCAL-00001" />
++      <option name="project" value="LOCAL" />
++      <updated>1734027212663</updated>
++    </task>
++    <option name="localTasksCounter" value="2" />
+     <servers />
+   </component>
+   <component name="TypeScriptGeneratedFilesManager">
+     <option name="version" value="3" />
+   </component>
++  <component name="VcsManagerConfiguration">
++    <MESSAGE value="Update Commit" />
++    <option name="LAST_COMMIT_MESSAGE" value="Update Commit" />
++  </component>
+ </project>
+\ No newline at end of file
+Index: movies-be/src/main/java/com/project/movies/controllers/MovieController.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.project.movies.controllers;\r\n\r\nimport com.project.movies.domain.dtos.MovieDto;\r\nimport com.project.movies.domain.entities.MovieEntity;\r\nimport com.project.movies.mappers.Mapper;\r\nimport com.project.movies.service.MovieService;\r\nimport org.springframework.beans.factory.annotation.Autowired;\r\nimport org.springframework.http.ResponseEntity;\r\nimport org.springframework.web.bind.annotation.*;\r\nimport java.util.List;\r\n\r\n@RestController\r\n@RequestMapping(\"/api/v1/movies\")\r\npublic class MovieController {\r\n\r\n    private final MovieService movieService;\r\n    private final Mapper<MovieEntity, MovieDto> movieMapper;\r\n\r\n    @Autowired\r\n    public MovieController(MovieService movieService, Mapper<MovieEntity, MovieDto> movieMapper) {\r\n        this.movieService = movieService;\r\n        this.movieMapper = movieMapper;\r\n    }\r\n\r\n    @GetMapping\r\n    public ResponseEntity<List<MovieDto>> getAllMovie() {\r\n        List<MovieEntity> movieEntities = movieService.getAllMovies();\r\n        List<MovieDto> movieDtos = movieEntities.stream()\r\n                .map(movieMapper::mapTo)\r\n                .toList();\r\n        return ResponseEntity.ok(movieDtos);\r\n    }\r\n\r\n    @GetMapping(\"/{imdbId}\")\r\n    public ResponseEntity<MovieDto> getSingleMovie(@PathVariable(\"imdbId\") String imdbId) {\r\n        return movieService.findMovieByImdbId(imdbId)\r\n                .map(movie -> ResponseEntity.ok(movieMapper.mapTo(movie)))\r\n                .orElseGet(() -> ResponseEntity.notFound().build());\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/movies-be/src/main/java/com/project/movies/controllers/MovieController.java b/movies-be/src/main/java/com/project/movies/controllers/MovieController.java
+--- a/movies-be/src/main/java/com/project/movies/controllers/MovieController.java	
++++ b/movies-be/src/main/java/com/project/movies/controllers/MovieController.java	
+@@ -11,6 +11,7 @@
+ 
+ @RestController
+ @RequestMapping("/api/v1/movies")
++@CrossOrigin(origins = "http://localhost:3000")
+ public class MovieController {
+ 
+     private final MovieService movieService;
